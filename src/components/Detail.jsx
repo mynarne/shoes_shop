@@ -1,6 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import TabContent from './TabContent';
+import Styled from 'styled-components';
+
+const Box = Styled.div`
+    padding: 20px 0;
+    color: gray;
+`;
+
+const YellowBtn = Styled.button`
+//    color : white;
+//    font-size: 30px;
+//    width: 100%;
+//    padding : 170px;
+//    border: 1px solid #ccc;
+//    background-image:url("https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fCVFQiU4MiU5OCVFQyU5RCVCNCVFRCU4MiVBNCUyMCVFQyU4QSU4OCVFQyVBNiU4OHxlbnwwfHwwfHx8MA%3D%3D");
+//    background-size: cover;
+//    background-position: center;
+   background: ${props => props.bg};
+   color: ${props => props.bg == 'blue' ? 'white' : 'black'};
+   padding: 10px;
+`;
 
 const Detail = (props) => {
     const {shoes} = props;
@@ -27,9 +47,14 @@ const Detail = (props) => {
                 2초이내 구매시 할인
                 </div>
             }
+
+            <Box>
+                <YellowBtn $bg="orange">지금 구매하면 10% 할인</YellowBtn>
+                <YellowBtn $bg="pink">지금 구매하면 10% 할인</YellowBtn>
+            </Box>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="w-full">
-                    <img src={import.meta.env.BASE_URL + shoes[id].imgUrl} alt="상품 이미지" className="w-full h-auto" />
+                    <img src={import.meta.env.BASE_URL + selproduct.imgUrl} alt="상품 이미지" className="w-full h-auto" />
                 </div>
 
                 <div className="pt-5 md:pt-0 space-y-4">
